@@ -32,4 +32,8 @@ public class Module {
     public void deleteZoomLink() {
         this.zoomLink = null;
     }
+
+    public String print() {
+        return this.moduleName + " has been created!";
+    }
 }
