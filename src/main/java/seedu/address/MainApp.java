@@ -51,20 +51,20 @@ public class MainApp extends Application {
         logger.info("=============================[ Initializing AddressBook ]===========================");
         super.init();
 
-        AppParameters appParameters = AppParameters.parse(getParameters());
-        config = initConfig(appParameters.getConfigPath());
-
-        UserPrefsStorage userPrefsStorage = new JsonUserPrefsStorage(config.getUserPrefsFilePath());
-        UserPrefs userPrefs = initPrefs(userPrefsStorage);
-        AddressBookStorage addressBookStorage = new JsonAddressBookStorage(userPrefs.getAddressBookFilePath());
-        storage = new StorageManager(addressBookStorage, userPrefsStorage);
-
-        initLogging(config);
-
-        model = initModelManager(storage, userPrefs);
-
-        logic = new LogicManager(model, storage);
-
+//        AppParameters appParameters = AppParameters.parse(getParameters());
+//        config = initConfig(appParameters.getConfigPath());
+//
+//        UserPrefsStorage userPrefsStorage = new JsonUserPrefsStorage(config.getUserPrefsFilePath());
+//        UserPrefs userPrefs = initPrefs(userPrefsStorage);
+//        AddressBookStorage addressBookStorage = new JsonAddressBookStorage(userPrefs.getAddressBookFilePath());
+//        storage = new StorageManager(addressBookStorage, userPrefsStorage);
+//
+//        initLogging(config);
+//
+//        model = initModelManager(storage, userPrefs);
+//
+//        logic = new LogicManager(model, storage);
+//
         ui = new UiManager(logic);
     }
 
@@ -174,10 +174,10 @@ public class MainApp extends Application {
     @Override
     public void stop() {
         logger.info("============================ [ Stopping Address Book ] =============================");
-        try {
-            storage.saveUserPrefs(model.getUserPrefs());
-        } catch (IOException e) {
-            logger.severe("Failed to save preferences " + StringUtil.getDetails(e));
-        }
+//        try {
+//            storage.saveUserPrefs(model.getUserPrefs());
+//        } catch (IOException e) {
+//            logger.severe("Failed to save preferences " + StringUtil.getDetails(e));
+//        }
     }
 }
