@@ -1,17 +1,17 @@
 package seedu.address.ui;
 
+import java.util.Collection;
 import java.util.logging.Logger;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputControl;
 import javafx.scene.input.KeyCombination;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
@@ -21,13 +21,15 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
 import tp.cap5buddy.ui.gui.MainWindowResult;
 
+import javax.sound.midi.ShortMessage;
+
 /**
  * The Main Window. Provides the basic application layout containing
  * a menu bar and space where other JavaFX elements can be placed.
  */
 public class MainWindow extends UiPart<Stage> {
 
-    private static final String FXML = "test.fxml";
+    private static final String FXML = "test2.fxml";
 
     private final Logger logger = LogsCenter.getLogger(getClass());
 
@@ -38,12 +40,19 @@ public class MainWindow extends UiPart<Stage> {
     private PersonListPanel personListPanel;
     private ResultDisplay resultDisplay;
     private HelpWindow helpWindow;
+    private ShortMessageBox shortMessage;
 
     @FXML
-    private TextField userInputTextBox;
+    private TextField userTextBox;
 
     @FXML
     private VBox mainDisplayWindowVbox;
+
+    @FXML
+    private VBox messageDisplayBox;
+
+    @FXML
+    private AnchorPane messageAndTextBox;
 
     /**
      * Creates a {@code MainWindow} with the given {@code Stage} and {@code Logic}.
@@ -67,10 +76,10 @@ public class MainWindow extends UiPart<Stage> {
     }
 
 
-//    /**
-//     * Fills up all the placeholders of this window.
-//     */
-//    void fillInnerParts() {
+    /**
+     * Fills up all the placeholders of this window.
+     */
+    void fillInnerParts() {
 //        personListPanel = new PersonListPanel(logic.getFilteredPersonList());
 //        personListPanelPlaceholder.getChildren().add(personListPanel.getRoot());
 //
@@ -81,8 +90,14 @@ public class MainWindow extends UiPart<Stage> {
 //        statusbarPlaceholder.getChildren().add(statusBarFooter.getRoot());
 //
 //        CommandBox commandBox = new CommandBox(this::executeCommand);
-//        commandBoxPlaceholder.getChildren().add(commandBox.getRoot());
-//    }
+//        messageDisplayBox.getChildren().add(commandBox.getRoot());
+        ShortMessageBox reply = new ShortMessageBox();
+        this.shortMessage = reply;
+        messageDisplayBox.getChildren().add(reply.getRoot());
+
+
+
+    }
 
     /**
      * Sets the default size based on {@code guiSettings}.
@@ -113,8 +128,9 @@ public class MainWindow extends UiPart<Stage> {
      */
     @FXML
     public void handleUserInput() {
-        String input = userInputTextBox.getText();
-        mainDisplayWindowVbox.getChildren().addAll(new MainWindowResult(input));
+        String input = userTextBox.getText();
+        // send this input to parser and return the CommadnResult obj.
+        this.shortMessage.setResultMessage(input);
         logger.info(input);
     }
 
@@ -138,12 +154,12 @@ public class MainWindow extends UiPart<Stage> {
         return personListPanel;
     }
 
-//    /**
-//     * Executes the command and returns the result.
-//     *
-//     * @see seedu.address.logic.Logic#execute(String)
-//     */
-//    private CommandResult executeCommand(String commandText) throws CommandException, ParseException {
+    /**
+     * Executes the command and returns the result.
+     *
+     * @see seedu.address.logic.Logic#execute(String)
+     */
+    private CommandResult executeCommand(String commandText) throws CommandException, ParseException {
 //        try {
 //            CommandResult commandResult = logic.execute(commandText);
 //            logger.info("Result: " + commandResult.getFeedbackToUser());
@@ -163,5 +179,6 @@ public class MainWindow extends UiPart<Stage> {
 //            resultDisplay.setFeedbackToUser(e.getMessage());
 //            throw e;
 //        }
-//    }
+        return new CommandResult("test",false,false);
+    }
 }
