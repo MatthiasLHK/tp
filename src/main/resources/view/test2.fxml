@@ -71,7 +71,7 @@
                                              </BorderPane>
                                           </children>
                                        </AnchorPane>
-                                     <AnchorPane fx:id="resultDisplay" prefHeight="293.0" prefWidth="559.0" style="-fx-background-color: #696969;" />
+                                     <AnchorPane fx:id="resultDisplayBox" prefHeight="293.0" prefWidth="559.0" style="-fx-background-color: #696969;" />
                                    </items>
                                  </SplitPane>
                               </children>

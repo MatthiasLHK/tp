@@ -41,6 +41,7 @@ public class MainWindow extends UiPart<Stage> {
     private ResultDisplay resultDisplay;
     private HelpWindow helpWindow;
     private ShortMessageBox shortMessage;
+    private ResultDisplayTabs resultDisplayTabs;
 
     @FXML
     private TextField userTextBox;
@@ -53,6 +54,9 @@ public class MainWindow extends UiPart<Stage> {
 
     @FXML
     private AnchorPane messageAndTextBox;
+
+    @FXML
+    private AnchorPane resultDisplayBox;
 
     /**
      * Creates a {@code MainWindow} with the given {@code Stage} and {@code Logic}.
@@ -95,8 +99,10 @@ public class MainWindow extends UiPart<Stage> {
         this.shortMessage = reply;
         messageDisplayBox.getChildren().add(reply.getRoot());
 
-
-
+        ResultDisplayTabs resultDisplayTabs = new ResultDisplayTabs();
+        this.resultDisplayTabs = resultDisplayTabs;
+//        System.out.println(resultDisplayTabs.getRoot() == null);
+        resultDisplayBox.getChildren().add(resultDisplayTabs.getRoot());
     }
 
     /**
@@ -129,7 +135,7 @@ public class MainWindow extends UiPart<Stage> {
     @FXML
     public void handleUserInput() {
         String input = userTextBox.getText();
-        // send this input to parser and return the CommadnResult obj.
+        // send this input to parser and return the CommandResult obj.
         this.shortMessage.setResultMessage(input);
         logger.info(input);
     }
