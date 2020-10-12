@@ -4,7 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 
-import java.awt.*;
+//import java.awt.*;
 
 public class ShortMessageBox extends UiPart<VBox> {
     private static final String URL = "shortMessage.fxml";
