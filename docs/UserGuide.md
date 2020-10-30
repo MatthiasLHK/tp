@@ -509,19 +509,14 @@ You can choose to view a particular event from the list by entering the index.
 ### General Features
 
 #### Undo previous user command: `undo`
-
-Undoes the previous user command
-
+Undo the previous user command
  Format: `undo`
-
  * The `undo` feature currently has not been extended to Scheduler commands
-
   Examples:
   * `undo`
-
 #### Redo previous user command: `redo`
 
-Redoes the previously undone user command
+Redo the previously undone user command
  * The `undo` feature currently has not been extended to Scheduler commands
  Format: `redo`
 
