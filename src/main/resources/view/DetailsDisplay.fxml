@@ -6,10 +6,10 @@
 
 <VBox prefHeight="466.0" prefWidth="308.0" styleClass="pane-with-border" stylesheets="@DarkTheme.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TextArea fx:id="resultDisplay" editable="false" maxWidth="-Infinity" styleClass="result-display" />
+      <TextArea fx:id="resultDisplay" editable="false" prefHeight="101.0" prefWidth="306.0" styleClass="result-display" />
       <StackPane fx:id="listPlaceholder" prefHeight="150.0" prefWidth="200.0">
          <children>
-            <VBox fx:id="zoomLinkListView" />
+            <VBox fx:id="zoomLinkListView" prefHeight="116.0" prefWidth="306.0" />
          </children>
       </StackPane>
    </children>

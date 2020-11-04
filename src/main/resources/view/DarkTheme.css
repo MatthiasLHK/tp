@@ -96,8 +96,8 @@
 .list-cell {
     -fx-label-padding: 0 0 0 0;
     -fx-graphic-text-gap : 0;
-    -fx-padding: 0 0 0 0;
-    -fx-border-width: 5;
+    -fx-padding: 5 5 5 5;
+    -fx-border-width: 0;
     -fx-border-color: transparent;
 }
 
@@ -310,10 +310,11 @@
 }
 
 #cardPane {
-    -fx-background-color: grey;
-    -fx-border-width: 0;
+    -fx-background-color: #303030;
+    -fx-border-width: 1;
     -fx-border-radius: 20;
     -fx-background-radius: 20;
+    -fx-border-color: #FFD700;
 }
 
 #commandTypeLabel {
