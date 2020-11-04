@@ -1,12 +1,14 @@
 package seedu.address.logic.commands;
 
+import seedu.address.model.module.ZoomLink;
+
 import java.util.List;
 
 public class ViewCommandResult extends CommandResult {
 
     private String textArea;
-    private List zoomLinksToCopy;
-    private List zoomLinks;
+    private List<ZoomLink> zoomLinksToCopy;
+    private List<ZoomLink> zoomLinks;
 
     public ViewCommandResult(String feedbackToUser) {
         super(feedbackToUser);
@@ -16,11 +18,11 @@ public class ViewCommandResult extends CommandResult {
         this.textArea = textArea;
     }
 
-    public void setZoomLinks(List zoomLinks) {
+    public void setZoomLinks(List<ZoomLink> zoomLinks) {
         this.zoomLinks = zoomLinks;
     }
 
-    public void setZoomLinksToCopy(List zoomLinksToCopy) {
+    public void setZoomLinksToCopy(List<ZoomLink> zoomLinksToCopy) {
         this.zoomLinksToCopy = zoomLinksToCopy;
     }
 
@@ -28,11 +30,11 @@ public class ViewCommandResult extends CommandResult {
         return textArea;
     }
 
-    public List getZoomLinks() {
+    public List<ZoomLink> getZoomLinks() {
         return zoomLinks;
     }
 
-    public List getZoomLinksToCopy() {
+    public List<ZoomLink> getZoomLinksToCopy() {
         return zoomLinksToCopy;
     }
 }
