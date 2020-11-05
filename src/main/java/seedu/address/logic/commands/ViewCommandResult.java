@@ -1,8 +1,8 @@
 package seedu.address.logic.commands;
 
-import seedu.address.model.module.ZoomLink;
-
 import java.util.List;
+
+import seedu.address.model.module.ZoomLink;
 
 public class ViewCommandResult extends CommandResult {
 

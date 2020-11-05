@@ -1,17 +1,12 @@
 package seedu.address.ui;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import static javafx.collections.FXCollections.observableList;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import seedu.address.logic.commands.ViewCommandResult;
-import seedu.address.model.module.ZoomLink;
-
-import java.util.List;
-
-import static javafx.collections.FXCollections.observableList;
 
 public class DetailDisplay extends UiPart<Region> {
 
