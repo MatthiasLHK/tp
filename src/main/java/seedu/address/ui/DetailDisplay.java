@@ -34,13 +34,12 @@ public class DetailDisplay extends UiPart<Region> {
 
     public void setDisplay(ViewCommandResult result) {
         resultDisplay.setText(result.getTextArea());
-
-        zoomLinkPanel = new ZoomLinkPanel(observableList(result.getZoomLinks()));
         smallDetailsPanel = new ModuleSmallDetailsCard(result.getModule());
         if (!smallDetailsPlaceHolder.getChildren().isEmpty()) {
             smallDetailsPlaceHolder.getChildren().remove(SMALL_DETAILS_CARD_INDEX);
         }
         smallDetailsPlaceHolder.getChildren().add(smallDetailsPanel.getRoot());
+        zoomLinkPanel = new ZoomLinkPanel(FXCollections.observableArrayList(result.getDisplayZoomLinks()));
         listPlaceholder.getChildren().add(zoomLinkPanel.getRoot());
         assignmentPanel = new AssignmentPanel(FXCollections.observableArrayList(result.getAssignments()));
         assignmentListPlaceHolder.getChildren().add(assignmentPanel.getRoot());
